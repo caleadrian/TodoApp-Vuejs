@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TODO APP</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="todo-app mx-auto w-50">
+            <div class="header bg-primary text-white text-center">
+                <p class="display-4 py-2 mb-0">TODO</p>
+            </div>
+            <div class="content bg-light p-4">
+
+                <div class="form">
+
+                    <div class="input-group mb-2">
+                        <input v-model="text" type="text" class="form-control" placeholder="Enter your todo here">
+                        <div class="input-group-append">
+                            <button @click="addTodo" class="btn btn-success" type="button">Add</button>
+                        </div>
+                    </div>
+
+
+                    <div v-show="showAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        Looks like you don't enter your todo.
+                        <button @click="removeAlert" type="button" class="close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                    <hr>
+
+                    <div class="todos-container">
+                        <ul class="list-group">
+                            <li v-for="(value, index) in todos" class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ value.text }}
+                                <button @click="removeTodo(index)" type="button" class="close" data-dismiss="list-group-item" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
